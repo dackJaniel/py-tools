@@ -32,11 +32,3 @@ jobs:
             dist/*.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # Optional: Auch auf PyPI veröffentlichen
-      - name: Publish to PyPI
-        if: startsWith(github.ref, 'refs/tags/')
-        env:
-          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}
-        run: |
-          poetry publish
