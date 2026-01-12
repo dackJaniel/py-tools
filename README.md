@@ -8,6 +8,7 @@ Eine Sammlung nützlicher Python CLI-Tools für den täglichen Gebrauch.
 ## ✨ Features
 
 - **PDF Highlighting**: Durchsuche und markiere Text in PDF-Dateien automatisch
+- **PDF Compression**: Komprimiere PDF-Dateien mit Ghostscript
 - Weitere Tools folgen...
 
 ## 📦 Installation
@@ -64,6 +65,55 @@ pipx install https://github.com/danielhilmer/py-tools/releases/latest/download/p
 ```
 
 ## 🚀 Verwendung
+
+### PDF Compression
+
+Komprimiere PDF-Dateien mit Ghostscript, um die Dateigröße zu reduzieren:
+
+```bash
+py-tools pdf-c --i="input.pdf"
+```
+
+**Parameter:**
+- `--i`: Eingabe-PDF-Datei (erforderlich)
+- `--o`: Ausgabe-PDF-Datei (optional, Standard: input_small.pdf)
+- `--quality` / `-q`: Qualitätsstufe (optional, Standard: screen)
+
+**Qualitätsstufen:**
+- `screen`: Niedrigste Qualität, kleinste Dateigröße (72 dpi) - Standard
+- `ebook`: Mittlere Qualität (150 dpi)
+- `printer`: Hohe Qualität (300 dpi)
+- `prepress`: Höchste Qualität, größte Dateigröße (300 dpi, farberhaltend)
+
+**Beispiele:**
+
+```bash
+# Standard-Kompression (screen quality)
+py-tools pdf-c --i="dokument.pdf"
+# Erzeugt: dokument_small.pdf
+
+# Mit benutzerdefiniertem Output-Namen
+py-tools pdf-c --i="dokument.pdf" --o="komprimiert.pdf"
+
+# Mit höherer Qualität
+py-tools pdf-c --i="dokument.pdf" --quality ebook
+
+# Kurze Option für Qualität
+py-tools pdf-c --i="dokument.pdf" -q printer
+```
+
+**Voraussetzung:** Ghostscript (`gs`) muss installiert sein:
+
+```bash
+# Debian/Ubuntu
+sudo apt install ghostscript
+
+# macOS
+brew install ghostscript
+
+# Arch Linux
+sudo pacman -S ghostscript
+```
 
 ### PDF Highlighting
 
