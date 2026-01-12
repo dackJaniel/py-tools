@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "py-tools"
-version = "0.1.0"
+version = "0.1.1"
 description = "Python CLI Tools Collection"
 authors = ["Daniel Hilmer <daniel.hilmer@outlook.de>"]
 readme = "README.md"
